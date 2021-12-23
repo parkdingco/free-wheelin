@@ -1,10 +1,12 @@
 package com.mathflat.parkdingco.dto.request;
 
-import com.mathflat.parkdingco.domain.enums.SchoolType;
 import lombok.Getter;
 import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.beans.ConstructorProperties;
 
 @Getter
