@@ -27,7 +27,7 @@ public class CreateStudentBasicValidator implements CreateStudentValidator {
         StudentRequest student = request.getStudent();
         Optional<Student> optionalStudent = studentRepository.findByPhoneNumber(student.getPhoneNumber());
         if (optionalStudent.isPresent()) {
-            throw new AlreadyStudentException(String.format("이미 존재하는 학생입니다.[%s]", optionalStudent.get().getPhoneNumber()));
+            throw new AlreadyStudentException(String.format("이미 존재하는 학생입니다. [%s]", optionalStudent.get().getPhoneNumber()));
         }
 
         return true;

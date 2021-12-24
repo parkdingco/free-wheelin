@@ -1,6 +1,7 @@
 package com.mathflat.parkdingco.common;
 
 import com.mathflat.parkdingco.exception.AlreadyStudentException;
+import com.mathflat.parkdingco.exception.AlreadySubjectException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -9,6 +10,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalControllerAdvice {
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(AlreadySubjectException.class)
+    protected ResultResponse<Void> handleAlreadySubjectException(AlreadySubjectException e) {
+        return ResultResponse.fail(null, ErrorCode.builder().code("ALREADY_EXIST_SUBJECT").message(e.getMessage()).build());
+    }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(AlreadyStudentException.class)

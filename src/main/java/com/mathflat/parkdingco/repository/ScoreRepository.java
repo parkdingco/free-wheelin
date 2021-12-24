@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ScoreRepository extends JpaRepository<Score, Long> {
     void deleteByStudentId(Long studentId);
+    void deleteBySubjectId(Long subjectId);
 }
