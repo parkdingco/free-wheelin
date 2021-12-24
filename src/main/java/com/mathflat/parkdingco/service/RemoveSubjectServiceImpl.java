@@ -1,6 +1,6 @@
 package com.mathflat.parkdingco.service;
 
-import com.mathflat.parkdingco.repository.ScoreRepository;
+import com.mathflat.parkdingco.repository.CourseRepository;
 import com.mathflat.parkdingco.repository.SubjectRepository;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +9,11 @@ import java.util.Objects;
 @Service
 public class RemoveSubjectServiceImpl implements RemoveSubjectService {
     private final SubjectRepository subjectRepository;
-    private final ScoreRepository scoreRepository;
+    private final CourseRepository courseRepository;
 
-    public RemoveSubjectServiceImpl(SubjectRepository subjectRepository, ScoreRepository scoreRepository) {
+    public RemoveSubjectServiceImpl(SubjectRepository subjectRepository, CourseRepository courseRepository) {
         this.subjectRepository = subjectRepository;
-        this.scoreRepository = scoreRepository;
+        this.courseRepository = courseRepository;
     }
 
     @Override
@@ -22,7 +22,7 @@ public class RemoveSubjectServiceImpl implements RemoveSubjectService {
             return;
         }
 
-        scoreRepository.deleteBySubjectId(subjectId);
+        courseRepository.deleteBySubjectId(subjectId);
 
         if (subjectRepository.findById(subjectId).isPresent()) {
             subjectRepository.deleteById(subjectId);
