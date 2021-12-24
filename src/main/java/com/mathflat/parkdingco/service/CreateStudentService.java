@@ -1,7 +1,8 @@
 package com.mathflat.parkdingco.service;
 
+import com.mathflat.parkdingco.domain.Student;
 import com.mathflat.parkdingco.dto.request.CreateStudentRequest;
 
 public interface CreateStudentService {
-    void create(CreateStudentRequest request);
+    Student create(CreateStudentRequest request);
 }

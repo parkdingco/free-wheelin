@@ -19,10 +19,10 @@ public class CreateSubjectServiceImpl implements CreateSubjectService {
 
     @Override
     @Transactional
-    public void create(CreateSubjectRequest request) {
+    public Subject create(CreateSubjectRequest request) {
         createSubjectBasicValidator.validate(request);
 
         Subject subject = Subject.builder().name(request.getSubject().getName()).build();
-        subjectRepository.save(subject);
+        return subjectRepository.save(subject);
     }
 }

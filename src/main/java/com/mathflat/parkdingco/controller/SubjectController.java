@@ -3,7 +3,7 @@ package com.mathflat.parkdingco.controller;
 import com.mathflat.parkdingco.common.ResultResponse;
 import com.mathflat.parkdingco.dto.request.CreateSubjectRequest;
 import com.mathflat.parkdingco.dto.response.SearchSubjectResponse;
-import com.mathflat.parkdingco.service.CreateSubjectService;
+import com.mathflat.parkdingco.service.CreateSubjectFacade;
 import com.mathflat.parkdingco.service.RemoveSubjectService;
 import com.mathflat.parkdingco.service.SearchSubjectService;
 import org.springframework.http.HttpStatus;
@@ -13,12 +13,12 @@ import javax.validation.Valid;
 
 @RestController
 public class SubjectController {
-    private final CreateSubjectService createSubjectService;
+    private final CreateSubjectFacade createSubjectFacade;
     private final SearchSubjectService searchSubjectService;
     private final RemoveSubjectService removeSubjectService;
 
-    public SubjectController(CreateSubjectService createSubjectService, SearchSubjectService searchSubjectService, RemoveSubjectService removeSubjectService) {
-        this.createSubjectService = createSubjectService;
+    public SubjectController(CreateSubjectFacade createSubjectFacade, SearchSubjectService searchSubjectService, RemoveSubjectService removeSubjectService) {
+        this.createSubjectFacade = createSubjectFacade;
         this.searchSubjectService = searchSubjectService;
         this.removeSubjectService = removeSubjectService;
     }
@@ -26,7 +26,7 @@ public class SubjectController {
     @PostMapping("/subjects")
     @ResponseStatus(HttpStatus.CREATED)
     public ResultResponse<Void> createSubject(@Valid @RequestBody CreateSubjectRequest request) {
-        createSubjectService.create(request);
+        createSubjectFacade.create(request);
         return ResultResponse.success();
     }
 
@@ -37,7 +37,7 @@ public class SubjectController {
 
     @DeleteMapping("/subjects/{subjectId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removeSubject(@PathVariable(value = "subjectId") Long subjectId){
+    public void removeSubject(@PathVariable(value = "subjectId") Long subjectId) {
         removeSubjectService.remove(subjectId);
     }
 }

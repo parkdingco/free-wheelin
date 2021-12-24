@@ -3,7 +3,7 @@ package com.mathflat.parkdingco.controller;
 import com.mathflat.parkdingco.common.ResultResponse;
 import com.mathflat.parkdingco.dto.request.CreateStudentRequest;
 import com.mathflat.parkdingco.dto.response.SearchStudentResponse;
-import com.mathflat.parkdingco.service.CreateStudentService;
+import com.mathflat.parkdingco.service.CreateStudentFacade;
 import com.mathflat.parkdingco.service.RemoveStudentService;
 import com.mathflat.parkdingco.service.SearchStudentService;
 import org.springframework.http.HttpStatus;
@@ -13,12 +13,12 @@ import javax.validation.Valid;
 
 @RestController
 public class StudentController {
-    private final CreateStudentService createStudentService;
+    private final CreateStudentFacade createStudentFacade;
     private final SearchStudentService searchStudentService;
     private final RemoveStudentService removeStudentService;
 
-    public StudentController(CreateStudentService createStudentService, SearchStudentService searchStudentService, RemoveStudentService removeStudentService) {
-        this.createStudentService = createStudentService;
+    public StudentController(CreateStudentFacade createStudentFacade, SearchStudentService searchStudentService, RemoveStudentService removeStudentService) {
+        this.createStudentFacade = createStudentFacade;
         this.searchStudentService = searchStudentService;
         this.removeStudentService = removeStudentService;
     }
@@ -26,7 +26,7 @@ public class StudentController {
     @PostMapping(value = "/students")
     @ResponseStatus(HttpStatus.CREATED)
     public ResultResponse<Void> createStudent(@Valid @RequestBody CreateStudentRequest request) {
-        createStudentService.create(request);
+        createStudentFacade.create(request);
         return ResultResponse.success();
     }
 

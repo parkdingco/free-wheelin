@@ -22,7 +22,7 @@ public class CreateStudentServiceImpl implements CreateStudentService {
 
     @Override
     @Transactional
-    public void create(CreateStudentRequest request) {
+    public Student create(CreateStudentRequest request) {
         createStudentValidator.validate(request);
 
         StudentRequest studentRequest = request.getStudent();
@@ -34,6 +34,6 @@ public class CreateStudentServiceImpl implements CreateStudentService {
                 .phoneNumber(studentRequest.getPhoneNumber())
                 .build();
 
-        studentRepository.save(student);
+        return studentRepository.save(student);
     }
 }

@@ -1,6 +1,7 @@
 package com.mathflat.parkdingco.domain;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -22,4 +23,11 @@ public class Course {
     private Long subjectId;
 
     private Long score;
+
+    @Builder
+    public Course(Long studentId, Long subjectId, Long score) {
+        this.studentId = studentId;
+        this.subjectId = subjectId;
+        this.score = score;
+    }
 }
