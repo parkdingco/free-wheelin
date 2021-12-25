@@ -1,4 +1,4 @@
-package com.mathflat.parkdingco.service;
+package com.mathflat.parkdingco.service.course;
 
 import com.mathflat.parkdingco.domain.Course;
 import com.mathflat.parkdingco.dto.response.SearchStudentAverageScoreResponse;

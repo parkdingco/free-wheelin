@@ -3,9 +3,9 @@ package com.mathflat.parkdingco.controller;
 import com.mathflat.parkdingco.common.ResultResponse;
 import com.mathflat.parkdingco.dto.request.CreateStudentRequest;
 import com.mathflat.parkdingco.dto.response.SearchStudentResponse;
-import com.mathflat.parkdingco.service.CreateStudentFacade;
-import com.mathflat.parkdingco.service.RemoveStudentService;
-import com.mathflat.parkdingco.service.SearchStudentService;
+import com.mathflat.parkdingco.service.student.CreateStudentFacade;
+import com.mathflat.parkdingco.service.student.RemoveStudentService;
+import com.mathflat.parkdingco.service.student.SearchStudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

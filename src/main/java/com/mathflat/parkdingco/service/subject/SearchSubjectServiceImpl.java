@@ -1,4 +1,4 @@
-package com.mathflat.parkdingco.service;
+package com.mathflat.parkdingco.service.subject;
 
 import com.mathflat.parkdingco.domain.Subject;
 import com.mathflat.parkdingco.dto.response.SearchSubjectResponse;

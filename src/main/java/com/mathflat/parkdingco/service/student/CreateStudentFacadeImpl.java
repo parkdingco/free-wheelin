@@ -1,7 +1,8 @@
-package com.mathflat.parkdingco.service;
+package com.mathflat.parkdingco.service.student;
 
 import com.mathflat.parkdingco.domain.Student;
 import com.mathflat.parkdingco.dto.request.CreateStudentRequest;
+import com.mathflat.parkdingco.service.course.CreateCourseService;
 import org.springframework.stereotype.Service;
 
 @Service

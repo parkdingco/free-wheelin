@@ -1,4 +1,4 @@
-package com.mathflat.parkdingco.service;
+package com.mathflat.parkdingco.service.subject;
 
 import com.mathflat.parkdingco.repository.CourseRepository;
 import com.mathflat.parkdingco.repository.SubjectRepository;

@@ -4,9 +4,9 @@ import com.mathflat.parkdingco.common.ResultResponse;
 import com.mathflat.parkdingco.dto.request.ScoreRequest;
 import com.mathflat.parkdingco.dto.response.SearchStudentAverageScoreResponse;
 import com.mathflat.parkdingco.dto.response.SearchSubjectAverageScoreResponse;
-import com.mathflat.parkdingco.service.ModifyCourseService;
-import com.mathflat.parkdingco.service.RemoveCourseService;
-import com.mathflat.parkdingco.service.SearchCourseService;
+import com.mathflat.parkdingco.service.course.ModifyCourseService;
+import com.mathflat.parkdingco.service.course.RemoveCourseService;
+import com.mathflat.parkdingco.service.course.SearchCourseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
