@@ -22,12 +22,20 @@ public class Course {
 
     private Long subjectId;
 
-    private Long score;
+    private Integer score;
 
     @Builder
-    public Course(Long studentId, Long subjectId, Long score) {
+    public Course(Long studentId, Long subjectId, Integer score) {
         this.studentId = studentId;
         this.subjectId = subjectId;
         this.score = score;
+    }
+
+    public void assignmentScore(int score) {
+        this.score = score;
+    }
+
+    public void removeScore(){
+        this.score = null;
     }
 }

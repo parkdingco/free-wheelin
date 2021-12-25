@@ -8,5 +8,5 @@ public interface CreateCourseService {
 
     void createBy(Subject newSubject);
 
-    void create(Long studentId, Long subjectId, Long score);
+    void create(Long studentId, Long subjectId, Integer score);
 }

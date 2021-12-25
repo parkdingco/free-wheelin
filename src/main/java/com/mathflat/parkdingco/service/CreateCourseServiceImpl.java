@@ -43,7 +43,7 @@ public class CreateCourseServiceImpl implements CreateCourseService {
 
     @Override
     @Transactional
-    public void create(Long studentId, Long subjectId, Long score) {
+    public void create(Long studentId, Long subjectId, Integer score) {
         Course course = Course.builder().studentId(studentId).subjectId(subjectId).score(score).build();
         courseRepository.save(course);
     }
