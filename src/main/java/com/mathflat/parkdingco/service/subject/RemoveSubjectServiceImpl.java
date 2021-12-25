@@ -3,6 +3,7 @@ package com.mathflat.parkdingco.service.subject;
 import com.mathflat.parkdingco.repository.CourseRepository;
 import com.mathflat.parkdingco.repository.SubjectRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Objects;
 
@@ -17,6 +18,7 @@ public class RemoveSubjectServiceImpl implements RemoveSubjectService {
     }
 
     @Override
+    @Transactional
     public void remove(Long subjectId) {
         if (Objects.isNull(subjectId)) {
             return;

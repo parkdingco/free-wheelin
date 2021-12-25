@@ -1,7 +1,6 @@
 package com.mathflat.parkdingco.common;
 
-import com.mathflat.parkdingco.exception.AlreadyStudentException;
-import com.mathflat.parkdingco.exception.AlreadySubjectException;
+import com.mathflat.parkdingco.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,6 +9,23 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalControllerAdvice {
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundStudentException.class)
+    protected ResultResponse<Void> handleNotFoundSubjectException(NotFoundStudentException e) {
+        return ResultResponse.fail(null, ErrorCode.builder().code("STUDENT_NOT_FOUND").message(e.getMessage()).build());
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundCourseException.class)
+    protected ResultResponse<Void> handleNotFoundCourseException(NotFoundCourseException e) {
+        return ResultResponse.fail(null, ErrorCode.builder().code("COURSE_NOT_FOUND").message(e.getMessage()).build());
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundSubjectException.class)
+    protected ResultResponse<Void> handleNotFoundSubjectException(NotFoundSubjectException e) {
+        return ResultResponse.fail(null, ErrorCode.builder().code("SUBJECT_NOT_FOUND").message(e.getMessage()).build());
+    }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(AlreadySubjectException.class)
